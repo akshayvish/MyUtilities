@@ -1,3 +1,5 @@
+package soulpatch.com.utilities.deleteduplicates;
+
 import java.io.File;
 import java.io.FilenameFilter;
 

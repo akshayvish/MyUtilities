@@ -1,3 +1,4 @@
+package soulpatch.com.utilities.deleteduplicates;
 import java.io.File;
 
 //MyFile has methods that will be useful for comparing and deleting files.
