@@ -7,10 +7,10 @@ public class MyFile {
 	File file = null;
 	long fileSize = 0;
 	MyFile[] fileList = null; 
-	boolean isSameName = false; //True if the names are exact match.
+	boolean isSameName = false; 
 	boolean isSimilarName = false; // True if the names have any words same.
-	boolean isSameSize = false; //True if the sizes of the files are exactly same. (Will later modify to have a range)
-	boolean isDuplicate = false; //True if the above three boolean variables for each file combination is true.
+	boolean isSameSize = false; 
+	boolean isDuplicate = false; 
 	String directory = null;
 	String extension = null;
 	
@@ -57,25 +57,26 @@ public class MyFile {
 	public void setFileSize(long fileSize) {
 		this.fileSize = fileSize;
 	}
-	public boolean isSimilarName() {
-		return isSimilarName;
-	}
+	
+	//True if the names are exact match.
 	public boolean isSameName(MyFile myFile) {
 		if(this.getFile().getName().equalsIgnoreCase(myFile.getFile().getName()))
-			isSameName = true;
-		return isSameName;
+			return true;
+		return false;
 	}
+	//True if the sizes of the files are exactly same. (Will later modify to have a range)
 	public boolean isSameSize(MyFile myFile) {
 		if(this.getFileSize() == myFile.getFileSize())
-			isSameSize = true; //Will later have a range
-		return isSameSize;
+			return true; //Will later have a range
+		return false;
 	}
+	//True if the above three boolean variables for each file combination is true.
 	public boolean isDuplicate(MyFile myFile2) {
 		if(this.isSameName(myFile2) && this.isSameSize(myFile2))
-			isDuplicate = true;
-		return isDuplicate;
+			return true;
+		return false;
 	}
-	public MyFile[] getFileList(FileExtension fe) {
+	/*public MyFile[] getFileList(FileExtension fe) {
 		if(this.isDirectory()){
 			File file[] = this.getFile().listFiles(fe);
 			fileList = new MyFile[file.length];
@@ -92,5 +93,14 @@ public class MyFile {
 				fileList[i] = new MyFile(file[i]);
 		}
 		return fileList;
+	}*/
+	
+	public boolean equals(MyFile myfile1){
+		String file1 = this.getFile().getAbsolutePath() + this.getFile().getName();
+		String file2 = myfile1.getFile().getAbsolutePath() + myfile1.getFile().getName();
+		if(file1.equalsIgnoreCase(file2)){
+			return true;
+		}
+		return false;
 	}
 }
