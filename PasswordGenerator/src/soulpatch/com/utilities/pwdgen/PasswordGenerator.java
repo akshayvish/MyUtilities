@@ -1,3 +1,13 @@
+/**
+ * This is the main file for this utitily. 
+ * This utility takes in the desired length of the password as a user input and generates a password that 
+ * conforms to the usual standards of a good password i.e the password should contain at least : 
+ * 	-- one upper case character
+ * 	-- one special character # $ % & @
+ * 	-- one numeric digit.
+ */
+
+
 package soulpatch.com.utilities.pwdgen;
 
 import java.awt.event.ActionEvent;
